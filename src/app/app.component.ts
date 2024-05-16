@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Auth } from '@angular/fire/auth';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,4 +11,25 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'bibliafront';
+
+  userLogged = false;
+
+
+  auth = inject(Auth);
+
+  constructor() {
+    this.auth.onAuthStateChanged(user => {
+      if (user) {
+        this.userLogged = true;
+      } else {
+        this.userLogged = false;
+      }
+    });
+  }
+
+
+
+
 }
+
+

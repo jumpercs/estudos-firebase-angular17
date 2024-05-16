@@ -1,0 +1,16 @@
+<button (click)="adicionarUsuario()">Adicionar Usuário</button>
+<button (click)="adicionarUsuarioSet()">Editar Usuário</button>
+<button (click)="deletarUsuario()">Deletar Usuário</button>
+<button (click)="pegarTodos()">Listar Usuários</button>
+<button (click)="filterUsuarioByName('mario')">filtrar por nome</button>
+
+<div *ngFor="let usuario of listUsuarios">
+    <p>{{ usuario.nome }}</p>
+    <p>{{ usuario.email }}</p>
+    <div
+    *ngFor="let produto of usuario.produtos">
+        <p>{{ produto.nome }}</p>
+        <p>{{ produto.valor }}</p>
+    </div>
+</div>
+
